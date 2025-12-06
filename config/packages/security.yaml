@@ -18,8 +18,8 @@ security:
             provider: app_user_provider
             custom_authenticator: App\Security\LoginFormAuthenticator
             logout:
-                path: logout               # Route for logging out
-                target: /                 # Redirect after logout
+                path: /logout             # Route for logging out (URL path)
+                target: /login           # Redirect after logout (URL path)
 
     access_control:
         # Admin pages only accessible by ROLE_ADMIN

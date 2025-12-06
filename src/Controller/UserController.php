@@ -12,4 +12,10 @@ class UserController extends AbstractController
     {
         return $this->render('user/dashboard.html.twig');
     }
+
+    #[Route('/user/profile', name: 'user_profile')]
+    public function profile(): Response
+    {
+        return $this->render('user/profile.html.twig');
+    }
 }

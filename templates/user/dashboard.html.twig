@@ -10,7 +10,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="mb-4">Welcome, {{ app.user.email }}!</h1>
+            <h1 class="mb-4">Welcome, {{ app.user.name }} {{ app.user.lastName }}!</h1>
         </div>
     </div>
     <div class="row">
@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Profile Settings</h5>
                     <p class="card-text">Manage your account settings and preferences.</p>
-                    <a href="#" class="btn btn-primary">Go to Profile</a>
+                    <a href="{{ path('user_profile') }}" class="btn btn-primary">Go to Profile</a>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Reservations</h5>
                     <p class="card-text">View and manage your reservations.</p>
-                    <a href="#" class="btn btn-primary">View Reservations</a>
+                    <a href="{{ path('app_reservations') }}" class="btn btn-primary">View Reservations</a>
                 </div>
             </div>
         </div>
@@ -37,10 +37,11 @@
                 <div class="card-body">
                     <h5 class="card-title">Commandes</h5>
                     <p class="card-text">Check your orders and purchase history.</p>
-                    <a href="#" class="btn btn-primary">View Commandes</a>
+                    <a href="{{ path('app_orders') }}" class="btn btn-primary">View Commandes</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<a href="{{ path('app_logout') }}" class="btn btn-danger">Logout</a>
 {% endblock %}

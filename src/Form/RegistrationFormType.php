@@ -7,6 +7,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -19,6 +22,26 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
+            ->add('name', TextType::class, [
+                'label' => 'Name',
+            ])
+            ->add('lastName', TextType::class, [
+                'label' => 'Last name',
+            ])
+            ->add('telephone', TelType::class, [
+                'label' => 'Telephone',
+                'required' => false,
+                'attr' => [
+                    'pattern' => '[0-9]{8}',
+                    'title' => 'Enter exactly 8 digits',
+                ],
+                'constraints' => [
+                    new Regex([
+                        'pattern' => '/^\d{8}$/',
+                        'message' => 'Telephone must contain exactly 8 digits.',
+                    ]),
+                ],
+            ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
