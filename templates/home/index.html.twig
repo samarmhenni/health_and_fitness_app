@@ -1,10 +1,304 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Accueil - Health & Fitness{% endblock %}
 
 {% block body %}
-<div class="jumbotron">
-    <h1 class="display-4">Welcome to Health & Fitness</h1>
-    <p class="lead">This is the homepage placeholder.</p>
-</div>
+        <!-- Carousel Start -->
+        <div class="header-carousel owl-carousel overflow-hidden bg-dark">
+            <div class="header-carousel-item hero-section">
+                <div class="hero-bg-half-1"></div>
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-lg-7 animated fadeInLeft">
+                                <div class="text-sm-center text-md-start">
+                                    <h4 class="text-primary text-uppercase fw-bold mb-4">Bienvenue à notre Centre Fitness</h4>
+                                    <h1 class="display-1 text-white mb-4">Le meilleur centre de fitness est maintenant dans votre ville</h1>
+                                    <p class="mb-5 fs-5">Découvrez nos équipements de pointe, nos coachs professionnels et notre ambiance motivante pour atteindre vos objectifs de forme physique.</p>
+                                    <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
+                                        <a class="btn btn-dark py-3 px-4 px-md-5 me-2" href="{{ path('app_services') }}"><i class="fas fa-dumbbell me-2"></i> <span>Nos Services</span></a>
+                                        <a class="btn btn-primary py-3 px-4 px-md-5 ms-2" href="{{ path('app_products') }}"><span>Nos Produits</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-carousel-item hero-section">
+                <div class="hero-bg-half-2"></div>
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-lg-7 animated fadeInLeft">
+                                <div class="text-sm-center text-md-start">
+                                    <h4 class="text-primary text-uppercase fw-bold mb-4">Bienvenue à notre Centre Fitness</h4>
+                                    <h1 class="display-2 text-white mb-4">Restez en bonne santé en vous entraînant au meilleur centre de gym</h1>
+                                    <p class="mb-5 fs-5">Rejoignez notre communauté de passionnés et transformez votre vie grâce à un mode de vie sain et actif.</p>
+                                    <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
+                                        <a class="btn btn-dark py-3 px-4 px-md-5 me-2" href="{{ path('app_services') }}"><i class="fas fa-dumbbell me-2"></i> <span>Nos Services</span></a>
+                                        <a class="btn btn-primary py-3 px-4 px-md-5 ms-2" href="{{ path('app_products') }}"><span>Nos Produits</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel End -->
+
+        <!-- About Start -->
+        <div class="container-fluid about pt-5">
+            <div class="container pt-5">
+                <div class="row g-5">
+                    <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
+                        <div class="about-content h-100">
+                            <h4 class="text-primary">À Propos de Notre Centre</h4>
+                            <h1 class="display-4 text-white mb-4">Nous sommes les meilleurs pour réaliser votre potentiel et atteindre vos objectifs.</h1>
+                            <p class="mb-4">Notre centre de fitness vous offre un environnement optimal pour votre entraînement avec des équipements modernes et des coachs expérimentés.</p>
+                            <div class="tab-class pb-4">
+                                <ul class="nav d-flex mb-2">
+                                    <li class="nav-item mb-3">
+                                        <a class="d-flex py-2 active" data-bs-toggle="pill" href="#tab-1">
+                                            <span style="width: 150px;">Notre Mission</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item mb-3">
+                                        <a class="d-flex py-2 mx-3" data-bs-toggle="pill" href="#tab-2">
+                                            <span style="width: 150px;">Notre Vision</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item mb-3">
+                                        <a class="d-flex py-2" data-bs-toggle="pill" href="#tab-3">
+                                            <span style="width: 150px;">Nos Objectifs</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="tab-1" class="tab-pane fade show p-0 active">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="d-flex align-items-center border-top border-bottom py-4">
+                                                    <span class="fas fa-rocket text-white fa-4x me-4"></span>
+                                                    <p class="mb-0">Nous nous engageons à vous fournir les meilleurs équipements et un accompagnement personnalisé pour vous aider à atteindre vos objectifs de forme physique et de bien-être.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="tab-2" class="tab-pane fade show p-0">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="d-flex align-items-center border-top border-bottom py-4">
+                                                    <span class="fas fa-eye text-white fa-4x me-4"></span>
+                                                    <p class="mb-0">Devenir le centre de fitness de référence en offrant une expérience unique qui combine technologie, expertise et communauté motivante.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="tab-3" class="tab-pane fade show p-0">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="d-flex align-items-center border-top border-bottom py-4">
+                                                    <span class="fas fa-bullseye text-white fa-4x me-4"></span>
+                                                    <p class="mb-0">Aider chaque membre à transformer sa vie grâce à un mode de vie actif et sain, avec des résultats mesurables et durables.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-4 align-items-center">
+                                <div class="col-sm-6">
+                                    <a href="{{ path('app_services') }}" class="btn btn-primary py-3 px-5"><span>Voir nos Services</span></a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="d-flex flex-shrink-0 ps-4">
+                                        <a href="#" class="btn btn-light btn-lg-square position-relative wow tada" data-wow-delay=".9s">
+                                            <i class="fa fa-phone-alt fa-2x"></i>
+                                            <div class="position-absolute" style="top: 5px; right: 5px;">
+                                                <span><i class="fa fa-comment-dots text-dark"></i></span>
+                                            </div>
+                                        </a>
+                                        <div class="d-flex flex-column ms-3">
+                                            <span>Appelez nos Experts</span>
+                                            <a href="tel:+21612345678"><span class="text-white">+216 12 345 678</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="about-img h-100">
+                            <div class="about-img-inner d-flex h-100">
+                                <img src="{{ asset('fitness/img/about-2.png') }}" class="img-fluid w-100" style="object-fit: cover;" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+        <!-- Services Start -->
+        <div class="container-fluid courses overflow-hidden py-5">
+            <div class="container py-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <h4 class="text-primary">Nos Services</h4>
+                    <h1 class="display-4 text-white mb-4">Découvrez Nos Programmes</h1>
+                    <p class="text-white mb-0">Nous proposons une large gamme de services pour répondre à tous vos besoins en matière de fitness et de bien-être.</p>
+                </div>
+                <div class="row gy-4 gx-0 justify-content-center">
+                    {% if services is defined and services|length > 0 %}
+                        {% for service in services|slice(0, 6) %}
+                        <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="courses-item">
+                                <div class="courses-item-inner p-4">
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <div class="courses-icon-img p-3">
+                                            {% if service.image %}
+                                                <img src="{{ service.image }}" class="img-fluid" alt="{{ service.name }}" style="width: 60px; height: 60px; object-fit: cover;">
+                                            {% else %}
+                                                <img src="{{ asset('fitness/img/icon-1.png') }}" class="img-fluid" alt="">
+                                            {% endif %}
+                                        </div>
+                                        <div class="data-info d-flex flex-column">
+                                            <div class="courses-date">
+                                                <p class="mb-1 text-primary h5">{{ service.price|number_format(2, ',', ' ') }} DT</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="{{ path('app_service_show', {'id': service.id}) }}" class="d-inline-block h4 mb-3">{{ service.name }}</a>
+                                    <p class="mb-4">{{ service.description|length > 100 ? service.description|slice(0, 100) ~ '...' : service.description }}</p>
+                                    <a href="{{ path('app_service_show', {'id': service.id}) }}" class="btn btn-primary py-2 px-4"><span>Voir Détails</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="col-12 text-center">
+                            <p class="text-white">Aucun service disponible pour le moment.</p>
+                        </div>
+                    {% endif %}
+                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.2s">
+                        <a href="{{ path('app_services') }}" class="btn btn-primary py-3 px-5"><span>Voir Tous les Services</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Services End -->
+
+        <!-- Products Start -->
+        <div class="container-fluid team py-5">
+            <div class="container py-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <h4 class="text-primary">Nos Produits</h4>
+                    <h1 class="display-4 mb-4">Équipements & Suppléments</h1>
+                    <p class="mb-0">Découvrez notre sélection de produits de qualité pour accompagner votre entraînement.</p>
+                </div>
+                <div class="row gy-5 gy-lg-4 gx-4">
+                    {% if products is defined and products|length > 0 %}
+                        {% for product in products|slice(0, 4) %}
+                        <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="team-item">
+                                <div class="team-img">
+                                    {% if product.image %}
+                                        <img src="{{ product.image }}" class="img-fluid w-100" alt="{{ product.name }}" style="height: 250px; object-fit: cover;">
+                                    {% else %}
+                                        <img src="{{ asset('fitness/img/team-1.jpg') }}" class="img-fluid w-100" alt="Image">
+                                    {% endif %}
+                                    <div class="team-icon">
+                                        <a href="{{ path('app_product_show', {'id': product.id}) }}" class="btn btn-primary btn-sm-square"><i class="fas fa-eye"></i></a>
+                                        {% if not is_granted('ROLE_ADMIN') %}
+                                        <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-primary btn-sm-square"><i class="fas fa-shopping-cart"></i></a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="team-content">
+                                    <h4>{{ product.name }}</h4>
+                                    <p class="mb-0 text-primary">{{ product.price|number_format(2, ',', ' ') }} DT</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="col-12 text-center">
+                            <p>Aucun produit disponible pour le moment.</p>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="text-center mt-5 wow fadeInUp" data-wow-delay="0.2s">
+                    <a href="{{ path('app_products') }}" class="btn btn-primary py-3 px-5"><span>Voir Tous les Produits</span></a>
+                </div>
+            </div>
+        </div>
+        <!-- Products End -->
+
+        <!-- Testimonial Start -->
+        <div class="container-fluid testimonial bg-dark py-5" style="margin-bottom: 90px;">
+            <div class="container py-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <h4 class="text-primary">Témoignages</h4>
+                    <h1 class="display-4 text-white">Ce Que Disent Nos Membres</h1>
+                </div>
+                <div class="testimonial-carousel owl-carousel wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="testimonial-item mx-auto" style="max-width: 900px;">
+                        <span class="fa fa-quote-left fa-3x quote-icon"></span>
+                        <div class="testimonial-img mb-4">
+                            <img src="{{ asset('fitness/img/testimonial-1.jpg') }}" class="img-fluid" alt="Image">
+                        </div>
+                        <p class="fs-4 text-white mb-4">Ce centre de fitness a transformé ma vie ! Les coachs sont professionnels et les équipements sont de première qualité. Je recommande vivement !</p>
+                        <div class="d-block">
+                            <h4 class="text-white">Ahmed Ben Ali</h4>
+                            <p class="m-0 pb-3">Membre depuis 2 ans</p>
+                            <div class="d-flex justify-content-center">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item mx-auto" style="max-width: 900px;">
+                        <span class="fa fa-quote-left fa-3x quote-icon"></span>
+                        <div class="testimonial-img mb-4">
+                            <img src="{{ asset('fitness/img/testimonial-2.jpg') }}" class="img-fluid" alt="Image">
+                        </div>
+                        <p class="fs-4 text-white mb-4">L'ambiance est incroyable et les cours collectifs sont très motivants. J'ai perdu 15 kg en 6 mois grâce à leur programme personnalisé.</p>
+                        <div class="d-block">
+                            <h4 class="text-white">Fatma Trabelsi</h4>
+                            <p class="m-0 pb-3">Membre depuis 1 an</p>
+                            <div class="d-flex justify-content-center">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item mx-auto" style="max-width: 900px;">
+                        <span class="fa fa-quote-left fa-3x quote-icon"></span>
+                        <div class="testimonial-img mb-4">
+                            <img src="{{ asset('fitness/img/testimonial-3.jpg') }}" class="img-fluid" alt="Image">
+                        </div>
+                        <p class="fs-4 text-white mb-4">Un excellent centre avec une équipe dévouée. Les horaires flexibles et la propreté des locaux sont remarquables.</p>
+                        <div class="d-block">
+                            <h4 class="text-white">Mohamed Sassi</h4>
+                            <p class="m-0 pb-3">Membre depuis 3 ans</p>
+                            <div class="d-flex justify-content-center">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
 {% endblock %}

@@ -24,5 +24,13 @@ security:
     access_control:
         # Admin pages only accessible by ROLE_ADMIN
         - { path: ^/admin, roles: ROLE_ADMIN }
+        # Product management (create, edit, delete) only for admins
+        - { path: ^/product/new, roles: ROLE_ADMIN }
+        - { path: ^/product/\d+/edit, roles: ROLE_ADMIN }
+        - { path: ^/product/\d+/delete, roles: ROLE_ADMIN }
+        # Service management (create, edit, delete) only for admins
+        - { path: ^/service/new, roles: ROLE_ADMIN }
+        - { path: ^/service/\d+/edit, roles: ROLE_ADMIN }
+        - { path: ^/service/\d+/delete, roles: ROLE_ADMIN }
         # User pages accessible by ROLE_USER
         - { path: ^/user, roles: ROLE_USER }

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réserver {{ service.name }}{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1>Réserver : {{ service.name }}</h1>
+    
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Détails du service</h5>
+            <p class="card-text">{{ service.description }}</p>
+            <p class="card-text"><strong>Prix :</strong> {{ service.price }} €</p>
+        </div>
+    </div>
+
+    {{ form_start(form) }}
+        {{ form_row(form.reservationDate) }}
+        <button type="submit" class="btn btn-success">Confirmer la réservation</button>
+        <a href="{{ path('app_service_show', {'id': service.id}) }}" class="btn btn-secondary">Annuler</a>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

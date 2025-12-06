@@ -1,8 +1,92 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cart{% endblock %}
+{% block title %}Mon Panier - Health & Fitness{% endblock %}
 
 {% block body %}
-<h1>Cart</h1>
-<p>This is a placeholder for the cart page.</p>
+<div class="container">
+    <h1 class="mb-4">🛒 Mon Panier</h1>
+
+    {% if items | length > 0 %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Produit</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                        <th>Total</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    {% if item.product.image %}
+                                        <img src="{{ item.product.image }}" alt="{{ item.product.name }}" class="img-thumbnail me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                    {% else %}
+                                        <div class="bg-light d-flex align-items-center justify-content-center me-3 border rounded" style="width: 50px; height: 50px;">
+                                            <i class="fas fa-image text-muted"></i>
+                                        </div>
+                                    {% endif %}
+                                    <span>{{ item.product.name }}</span>
+                                </div>
+                            </td>
+                            <td>{{ item.product.price|number_format(2, ',', ' ') }} DT</td>
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <a href="{{ path('cart_decrease', {'id': item.product.id}) }}" class="btn btn-outline-secondary">-</a>
+                                    <span class="btn btn-outline-secondary disabled text-dark" style="width: 40px;">{{ item.quantity }}</span>
+                                    {% if item.quantity < item.product.stock %}
+                                        <a href="{{ path('cart_add', {'id': item.product.id}) }}" class="btn btn-outline-secondary">+</a>
+                                    {% else %}
+                                        <button class="btn btn-outline-secondary" disabled title="Stock maximum atteint">+</button>
+                                    {% endif %}
+                                </div>
+                                {% if item.quantity >= item.product.stock %}
+                                    <div class="text-danger small mt-1">Max stock atteint</div>
+                                {% endif %}
+                            </td>
+                            <td>{{ (item.product.price * item.quantity)|number_format(2, ',', ' ') }} DT</td>
+                            <td>
+                                <a href="{{ path('cart_remove', {'id': item.product.id}) }}" class="btn btn-danger btn-sm">
+                                    🗑️ Supprimer
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot class="table-light">
+                    <tr>
+                        <td colspan="3" class="text-end fw-bold">Total :</td>
+                        <td class="fw-bold text-success">{{ total|number_format(2, ',', ' ') }} DT</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+            <a href="{{ path('app_products') }}" class="btn btn-secondary">← Continuer mes achats</a>
+            <div>
+                <a href="{{ path('cart_clear') }}" class="btn btn-outline-danger me-2">Vider le panier</a>
+                {% if app.user %}
+                    <a href="{{ path('app_order_checkout') }}" class="btn btn-success btn-lg">Passer la commande →</a>
+                {% else %}
+                    <a href="{{ path('app_login') }}" class="btn btn-success btn-lg">Se connecter pour commander</a>
+                {% endif %}
+            </div>
+        </div>
+    {% else %}
+        <div class="text-center py-5">
+            <div class="mb-4">
+                <i class="fas fa-shopping-cart fa-4x text-muted"></i>
+            </div>
+            <h3>Votre panier est vide</h3>
+            <p class="text-muted">Découvrez nos produits et commencez vos achats !</p>
+            <a href="{{ path('app_products') }}" class="btn btn-primary mt-3">Voir les produits</a>
+        </div>
+    {% endif %}
+</div>
 {% endblock %}
