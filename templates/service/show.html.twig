@@ -1,8 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Service Details{% endblock %}
+{% block title %}{{ service.name }} - Health & Fitness{% endblock %}
 
 {% block body %}
-<h1>Service {{ id }}</h1>
-<p>Details for service #{{ id }} (placeholder).</p>
+<div class="container">
+    <div class="card mx-auto" style="max-width: 600px;">
+        <div class="bg-light d-flex align-items-center justify-content-center" style="height: 400px;">
+            {% if service.image %}
+                <img src="{{ service.image }}" class="img-fluid" alt="{{ service.name }}" style="max-height: 380px; object-fit: contain;">
+            {% else %}
+                <div class="text-muted text-center"><i class="fas fa-dumbbell fa-5x"></i><br><br>Pas d'image disponible</div>
+            {% endif %}
+        </div>
+        <div class="card-body text-center">
+            <h2>{{ service.name }}</h2>
+            <p class="lead">{{ service.description }}</p>
+            <p class="h3 text-success mb-4">{{ service.price|number_format(2, ',', ' ') }} DT</p>
+            
+            <a href="{{ path('app_reservation_new', {'serviceId': service.id}) }}" class="btn btn-success btn-lg me-2">📅 Réserver</a>
+            <a href="{{ path('app_services') }}" class="btn btn-secondary btn-lg">Retour aux services</a>
+            
+            {% if is_granted('ROLE_ADMIN') %}
+                <hr class="my-4">
+                <div class="d-flex justify-content-center gap-2">
+                    <a href="{{ path('app_service_edit', {'id': service.id}) }}" class="btn btn-warning">✏️ Modifier</a>
+                    <form action="{{ path('app_service_delete', {'id': service.id}) }}" method="post" class="d-inline" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce service ?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ service.id) }}">
+                        <button type="submit" class="btn btn-danger">🗑️ Supprimer</button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}
