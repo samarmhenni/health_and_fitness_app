@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile - {{ app.user.name }}{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="me-4">
+                            <div class="rounded-circle bg-light d-flex align-items-center justify-content-center" style="width:110px;height:110px;overflow:hidden;">
+                                {% if app.user.image is defined and app.user.image %}
+                                    <img src="{{ app.user.image }}" alt="Avatar" class="img-fluid" style="width:110px;height:110px;object-fit:cover;">
+                                {% else %}
+                                    <svg width="110" height="110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                                        <rect width="100" height="100" fill="#e9ecef"/>
+                                        <text x="50" y="55" font-size="36" text-anchor="middle" fill="#6c757d">{{ app.user.name|default('U')[:1] ~ (app.user.lastName|default('')[:1] ) }}</text>
+                                    </svg>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="mb-0">{{ app.user.name }} {{ app.user.lastName }}</h2>
+                            <p class="text-muted mb-1">Member since: {{ app.user.id ? "#" ~ app.user.id : '—' }}</p>
+                            <div>
+                                <a href="{{ path('user_profile_edit') if (app.request is defined) else path('user_profile') }}" class="btn btn-outline-primary btn-sm me-2">Edit profile</a>
+                                <a href="{{ path('app_logout') }}" class="btn btn-outline-danger btn-sm">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Contact</h5>
+                            <ul class="list-unstyled">
+                                <li><strong>Email:</strong> {{ app.user.email }}</li>
+                                <li><strong>Telephone:</strong> {{ app.user.telephone ?: 'Not provided' }}</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Account</h5>
+                            <ul class="list-unstyled">
+                                <li><strong>Roles:</strong> {{ app.user.roles|join(', ') }}</li>
+                                <li><strong>Password:</strong> ••••••••</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title">Profile Settings</h6>
+                                    <p class="card-text">Update your personal information and contact details.</p>
+                                    <a href="{{ path('user_profile_edit') }}" class="btn btn-primary btn-sm">Edit Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title">Reservations</h6>
+                                    <p class="card-text">View and manage your reservations.</p>
+                                    <a href="{{ path('app_reservations') }}" class="btn btn-primary btn-sm">View Reservations</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h6 class="card-title">Orders</h6>
+                                    <p class="card-text">Check your orders and purchase history.</p>
+                                    <a href="{{ path('app_orders') }}" class="btn btn-primary btn-sm">View Orders</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

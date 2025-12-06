@@ -5,4 +5,7 @@
 {% block body %}
     <h1>Admin Dashboard</h1>
     <p>Welcome, Admin!</p>
-{% endblock %}
+{# add logout button #}
+    <a href="{{ path('app_logout') }}" class="btn btn-danger">Logout</a>
+    
+    {% endblock %}
